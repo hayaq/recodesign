@@ -1,0 +1,245 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A3596671691C9C300400C87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3596661691C9C300400C87 /* Foundation.framework */; };
+		4A35966A1691C9C300400C87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3596691691C9C300400C87 /* main.m */; };
+		4A35966E1691C9C300400C87 /* recodesign.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4A35966D1691C9C300400C87 /* recodesign.1 */; };
+		4A3596AF1691D3A700400C87 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3596AE1691D3A700400C87 /* Security.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4A3596601691C9C300400C87 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				4A35966E1691C9C300400C87 /* recodesign.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4A3596621691C9C300400C87 /* recodesign */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = recodesign; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A3596661691C9C300400C87 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4A3596691691C9C300400C87 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4A35966C1691C9C300400C87 /* recodesign-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "recodesign-Prefix.pch"; sourceTree = "<group>"; };
+		4A35966D1691C9C300400C87 /* recodesign.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = recodesign.1; sourceTree = "<group>"; };
+		4A3596AE1691D3A700400C87 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A35965F1691C9C300400C87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A3596AF1691D3A700400C87 /* Security.framework in Frameworks */,
+				4A3596671691C9C300400C87 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A3596571691C9C300400C87 = {
+			isa = PBXGroup;
+			children = (
+				4A3596681691C9C300400C87 /* recodesign */,
+				4A3596651691C9C300400C87 /* Frameworks */,
+				4A3596631691C9C300400C87 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4A3596631691C9C300400C87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A3596621691C9C300400C87 /* recodesign */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A3596651691C9C300400C87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A3596AE1691D3A700400C87 /* Security.framework */,
+				4A3596661691C9C300400C87 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A3596681691C9C300400C87 /* recodesign */ = {
+			isa = PBXGroup;
+			children = (
+				4A3596691691C9C300400C87 /* main.m */,
+				4A35966D1691C9C300400C87 /* recodesign.1 */,
+				4A35966B1691C9C300400C87 /* Supporting Files */,
+			);
+			path = recodesign;
+			sourceTree = "<group>";
+		};
+		4A35966B1691C9C300400C87 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A35966C1691C9C300400C87 /* recodesign-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A3596611691C9C300400C87 /* recodesign */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A3596711691C9C300400C87 /* Build configuration list for PBXNativeTarget "recodesign" */;
+			buildPhases = (
+				4A35965E1691C9C300400C87 /* Sources */,
+				4A35965F1691C9C300400C87 /* Frameworks */,
+				4A3596601691C9C300400C87 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = recodesign;
+			productName = recodesign;
+			productReference = 4A3596621691C9C300400C87 /* recodesign */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A3596591691C9C300400C87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = hayashi;
+			};
+			buildConfigurationList = 4A35965C1691C9C300400C87 /* Build configuration list for PBXProject "recodesign" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4A3596571691C9C300400C87;
+			productRefGroup = 4A3596631691C9C300400C87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A3596611691C9C300400C87 /* recodesign */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A35965E1691C9C300400C87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A35966A1691C9C300400C87 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4A35966F1691C9C300400C87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4A3596701691C9C300400C87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4A3596721691C9C300400C87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "recodesign/recodesign-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4A3596731691C9C300400C87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "recodesign/recodesign-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A35965C1691C9C300400C87 /* Build configuration list for PBXProject "recodesign" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A35966F1691C9C300400C87 /* Debug */,
+				4A3596701691C9C300400C87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A3596711691C9C300400C87 /* Build configuration list for PBXNativeTarget "recodesign" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A3596721691C9C300400C87 /* Debug */,
+				4A3596731691C9C300400C87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A3596591691C9C300400C87 /* Project object */;
+}
