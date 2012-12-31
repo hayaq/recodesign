@@ -5,7 +5,6 @@
 //  Created by hayashi on 12/31/12.
 //  Copyright (c) 2012 hayashi. All rights reserved.
 //
-
 #import <Foundation/Foundation.h>
 
 #define PrintUsageWithError(...) PrintUsage([NSString stringWithFormat:@__VA_ARGS__]);
@@ -73,7 +72,9 @@ int main(int argc, const char * argv[])
 			dstIPA = [[srcIPA stringByDeletingPathExtension] stringByAppendingString:@"_rc.ipa"];
 		}
 				
-		ReCodesign(srcIPA, p12File, p12Password, provFile, dstIPA);
+		if( !ReCodesign(srcIPA, p12File, p12Password, provFile, dstIPA) ){
+			return -1;
+		}
 	}
 	return 0;
 }
@@ -106,41 +107,7 @@ static SecKeychainRef CreateTempKeychain(NSString *path){
 	}
 	SecKeychainRef keychain = NULL;
 	SecKeychainCreate ([path UTF8String],0,"",NO,NULL,&keychain);
-	NSLog(@"%@",path);
 	return keychain;
-}
-
-static void Codesign(NSString *appPath, NSArray*provInfo){
-	NSString *identity = [provInfo objectAtIndex:0];
-	NSString *provFile = [provInfo objectAtIndex:1];
-	NSString *keychainPath = [provInfo objectAtIndex:2];
-	
-	NSString *embededPath = [appPath stringByAppendingPathComponent:@"embedded.mobileprovision"];
-	if( [[NSFileManager defaultManager] fileExistsAtPath:embededPath]){
-		[[NSFileManager defaultManager] removeItemAtPath:embededPath error:nil];
-	}
-	[[NSFileManager defaultManager] copyItemAtPath:provFile toPath:embededPath error:nil];
-	NSString *crPath = [appPath stringByAppendingPathComponent:@"ResourceRules.plist"];
-	
-	NSString *crLink = [appPath stringByAppendingPathComponent:@"CodeResources"];
-	if( [[NSFileManager defaultManager] fileExistsAtPath:crLink] ){
-		[[NSFileManager defaultManager] removeItemAtPath:crLink error:nil];
-	}
-	NSString *crLink2 = [appPath stringByAppendingPathComponent:@"_CodeSignature/CodeResources"];
-	if( [[NSFileManager defaultManager] fileExistsAtPath:crLink2] ){
-		[[NSFileManager defaultManager] removeItemAtPath:crLink2 error:nil];
-	}
-	
-	NSArray *arguments = [NSArray arrayWithObjects:@"-f",@"-s",identity,
-						  @"--resource-rules",crPath,
-						  @"--keychain",keychainPath,
-						  appPath,nil];
-	NSTask *codesignTask = [[NSTask alloc] init];
-	[codesignTask setLaunchPath:@"/usr/bin/codesign"];
-	[codesignTask setArguments:arguments];
-	[codesignTask launch];
-	[codesignTask waitUntilExit];
-	[codesignTask release];
 }
 
 static void MakeIPA(NSString *workDir,NSString* dstPath){
@@ -181,6 +148,39 @@ static NSString* CreateTempDir(){
 							  withIntermediateDirectories:NO
 											   attributes:nil error:nil];
 	return path;
+}
+
+static void Codesign(NSString *appPath, NSArray*provInfo){
+	NSString *identity = [provInfo objectAtIndex:0];
+	NSString *provFile = [provInfo objectAtIndex:1];
+	NSString *keychainPath = [provInfo objectAtIndex:2];
+	
+	NSString *embededPath = [appPath stringByAppendingPathComponent:@"embedded.mobileprovision"];
+	if( [[NSFileManager defaultManager] fileExistsAtPath:embededPath]){
+		[[NSFileManager defaultManager] removeItemAtPath:embededPath error:nil];
+	}
+	[[NSFileManager defaultManager] copyItemAtPath:provFile toPath:embededPath error:nil];
+	NSString *crPath = [appPath stringByAppendingPathComponent:@"ResourceRules.plist"];
+	
+	NSString *crLink = [appPath stringByAppendingPathComponent:@"CodeResources"];
+	if( [[NSFileManager defaultManager] fileExistsAtPath:crLink] ){
+		[[NSFileManager defaultManager] removeItemAtPath:crLink error:nil];
+	}
+	NSString *crLink2 = [appPath stringByAppendingPathComponent:@"_CodeSignature/CodeResources"];
+	if( [[NSFileManager defaultManager] fileExistsAtPath:crLink2] ){
+		[[NSFileManager defaultManager] removeItemAtPath:crLink2 error:nil];
+	}
+	
+	NSArray *arguments = [NSArray arrayWithObjects:@"-f",@"-s",identity,
+						  @"--resource-rules",crPath,
+						  @"--keychain",keychainPath,
+						  appPath,nil];
+	NSTask *codesignTask = [[NSTask alloc] init];
+	[codesignTask setLaunchPath:@"/usr/bin/codesign"];
+	[codesignTask setArguments:arguments];
+	[codesignTask launch];
+	[codesignTask waitUntilExit];
+	[codesignTask release];
 }
 
 static BOOL ReCodesign(NSString *srcIPA, NSString *p12File, NSString *passwd, NSString *provFile, NSString *dstIPA)
