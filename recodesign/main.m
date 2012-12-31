@@ -242,14 +242,14 @@ static BOOL ReCodesign(NSString *srcIPA, NSString *p12File, NSString *passwd, NS
 		}
 	}
 	CFRelease(results);
+	
 	if( !commonName ){
 		DeleteTempKeychain(keychain);
 		PrintError(@"Failed to obtain certificate data from P12");
 		return FALSE;
 	}
+	
 	NSFileManager *fm = [NSFileManager defaultManager];
-	
-	
 	NSString *payloadPath = [workDir stringByAppendingPathComponent:@"Payload"];
 	NSString *zipFile = [workDir stringByAppendingPathComponent:@"Payload.zip"];
 	
